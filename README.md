@@ -44,9 +44,7 @@
 ### Key Features <a name="key-features"></a>
 
 - Add comments
-- Add likes
-- Delete comments
-- Remove likes
+- likes posts
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -57,20 +55,48 @@
 
 In order to run this project you need:
 
-- Ruby inatalled on your machine
-
-### Run
-
-Example commands:
-
-```
-  ruby solver.rb
+```sh
+ gem install rails
 ```
 
-test 
+### Setup
 
+Clone this repository to your desired folder:
+
+```sh
+  cd my-folder
+  git clone  https://github.com/paulinagonzalezc/blog-app-rails
 ```
-  rspec solver.rb
+
+-
+
+### Install
+
+Install this project with:
+
+```sh
+  cd my-folder
+  gem install
+```
+
+-
+
+### Usage
+
+To run the project, execute the following command:
+
+```sh
+  rails server
+```
+
+-
+
+### Run tests
+
+To run tests, run the following command:
+
+```sh
+  rspec
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -79,21 +105,11 @@ test
 
 ## 👥 Authors <a name="authors"></a>
 
-👤 **Khomotso Mkansi**
+### 👤 Jerome
 
-- GitHub: [@githubhandle](https://momotsow.github.io/microverse-portfolio/)
-- Twitter: [@twitterhandle](#)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/khomotso-prudence-mkansi/)
-
-👤 **Vanel Nwaba**
-- GitHub: [vanelnw](https://github.com/vanelnw)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/va-nw)
-
-👤 **Yousef Hesham**
-
-- GitHub: [@yosefHesham](https://github.com/yosefHesham)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/yousef-hesham98)
-- Twitter: [@yousef](https://twitter.com/Yousef45653478)
+- GitHub: [@githubhandle](https://github.com/187jjay187)
+- Twitter: [@twitterhandle](https://twitter.com/187jjay187)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/jerome-osman-137605a4)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -112,7 +128,7 @@ test
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/187jjay187/Blog/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

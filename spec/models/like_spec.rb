@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Like, type: :model do
   before :each do
-    @user = User.create(name: 'Paulina', photo: 'https://unsplash.com/es/fotos/vuBaykPW1Dk', bio: 'Student')
+    @user = User.create(name: 'Jerome', photo: 'https://unsplash.com/photos/XUdIi04ohps', bio: 'Student')
     @post = Post.create(author: @user, title: 'My post', text: 'Hello!')
   end
 

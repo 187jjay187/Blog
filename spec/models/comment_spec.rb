@@ -4,7 +4,7 @@ RSpec.describe Comment, type: :model do
   before :each do
     @user = User.create(name: 'Jerome', photo: 'https://unsplash.com/photos/XUdIi04ohps', bio: 'Student')
     @post = Post.create(author: @user, title: 'My post', text: 'Hello!')
-    @comment = Comment.create(post: @post, author: @user, text: 'Hi Pau!')
+    @comment = Comment.create(post: @post, author: @user, text: 'Hi Jay!')
   end
 
   it 'user attribute should be valid' do

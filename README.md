@@ -65,7 +65,7 @@ Clone this repository to your desired folder:
 
 ```sh
   cd my-folder
-  git clone  https://github.com/paulinagonzalezc/blog-app-rails
+  git clone  https://github.com/187jjay187/Blog
 ```
 
 -

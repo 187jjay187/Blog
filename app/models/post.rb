@@ -23,5 +23,3 @@ class Post < ApplicationRecord
     author.update(posts_counter: author.posts.count)
   end
 end
-
-

@@ -117,8 +117,8 @@ To run tests, run the following command:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- validations
-- model specs 
+- new users
+- UI Updates
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

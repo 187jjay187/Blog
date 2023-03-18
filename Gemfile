@@ -67,11 +67,11 @@ end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
+  gem 'bullet'
   gem 'capybara'
   gem 'rails-controller-testing'
   gem 'selenium-webdriver'
   gem 'webdrivers'
-  gem 'bullet'
 end
 
 gem 'rubocop', '>= 1.0', '< 2.0'

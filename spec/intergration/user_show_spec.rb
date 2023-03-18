@@ -30,7 +30,7 @@ RSpec.describe 'User Page Index', type: :feature do
     expect(page).to have_content('Artist')
   end
 
-  it should have the first three posts of user' do
+  it 'should have the first three posts of user' do
     expect(page).to have_content(@post1.title)
     expect(page).to have_content(@post2.title)
     expect(page).to have_content(@post3.title)
@@ -45,7 +45,7 @@ RSpec.describe 'User Page Index', type: :feature do
     expect(page).to have_current_path user_post_path(@user.id, @post1.id)
   end
 
-  it should redirect to all user posts index page on click' do
+  it 'should redirect to all user posts index page on click' do
     click_link('See all posts')
     expect(page).to have_current_path user_posts_path(@user.id)
   end

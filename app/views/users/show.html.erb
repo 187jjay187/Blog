@@ -21,15 +21,15 @@
    <% @user.recent_posts.each do |post| %>
      <div class="users-post">
       <h2><%= link_to "#{post.title}", user_post_path(@user.id, post.id), class: "link-button" %></h2>
-       <p><%= post.text %></p>
-       <h4>Comments: <%=post.comments_counter %>, Likes: <%= post.likes_counter %></h4>
-     </div>
-     <% end %>
+      <p><%= post.text %></p>
+      <h4>Comments: <%=post.comments_counter %>, Likes: <%= post.likes_counter %></h4>
+    </div>
+    <% end %>
     <% end %>
 
     <button class="all-post-button">
       <%= link_to "See all posts", user_posts_path(@user), class: "all-posts" %>
     </button>
     <button class="create-post-button"type="button"><%= link_to "Create a post", new_user_post_path(@user), class: "create-post"  %></button>
- <div>
- </div>
+  <div>
+  </div>

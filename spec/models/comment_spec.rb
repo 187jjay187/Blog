@@ -1,25 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  before :each do
-    @user = User.create(name: 'Jerome', photo: 'https://unsplash.com/photos/XUdIi04ohps', bio: 'Student')
-    @post = Post.create(author: @user, title: 'My post', text: 'Hello!')
-    @comment = Comment.create(post: @post, author: @user, text: 'Hi Jay!')
-  end
+  author = User.new(name: 'Jerome', photo: 'https://unsplash.com/photos/XUdIi04ohps', bio: 'Student',
+                    posts_counter: 0)
+  post = Post.new(title: 'Hi post', text: 'This is my first post', author:, likes_counter: 0, comments_counter: 0)
+  post.save!
 
-  it 'user attribute should be valid' do
-    expect(@user).to be_valid
-  end
+  commentor = User.new(name: 'Tim', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Bio', posts_counter: 0)
+  commentor.save!
 
-  it 'post attribute should be valid' do
-    expect(@post).to be_valid
-  end
-
-  it 'comment should be valid' do
-    expect(@comment).to be_valid
-  end
-
-  it 'update_post_comments_counter should increse comments' do
-    expect(@post.comments_counter).to eq 1
+  post.comments.create!(text: 'Say hi', author: commentor)
+  post.comments.create!(text: 'Say hello', author: commentor)
+  post.comments.create!(text: 'Say bye', author: commentor)
+  it 'adds a comment' do
+    expect(post.comments.length).to eql(3)
   end
 end

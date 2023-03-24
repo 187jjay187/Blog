@@ -4,22 +4,24 @@
   <h6>Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %></h6>
   <p class="post-text"><%= @post.text %></p>
 </div>
-
 <div class="like-comment-btn">
   <%= form_with model: @like, url: user_post_likes_path(user_id: @post.author.id, post_id: @post.id), local: true do |form| %>
     <%= form.submit "Add a like", class: "add-like" %>
   <% end %>
   <button type="button" class="add-comment"><%= link_to "Add a comment", new_user_post_comment_path(user_id: @post.author.id, post_id: @post.id), class: "comment-link" %></button>
 </div>
-
 <div class="comments-cont">
   <% if @post.all_comments.count.zero? %>
   <p>Post has no comments yet</p>
   <%else%>
   <% @post.all_comments.each do |comment| %>
     <p><%= comment.author.name %>: <%= comment.text %></p>
+    <div class="delete-btn-wrapper">
+    <% if can? :destroy, comment %>
+      <%= button_to 'Delete Comment', user_post_comment_path(@user, @post, comment), method: :delete, class: "delete-button" %>
+    <% end %>
+    </div>
   <% end %>
   <% end %>
 </div>
 </div>
-

@@ -1,20 +1,22 @@
 <div class="main-container">
  <div class="users-wrapper flex">
     <div class="img-cont">
-      <%= image_tag @user.photo, :size => "70x80", alt: "user photo" %>
+      <%= image_tag(@user.photo.present? ? @user.photo : "default_user_photo.png", size: "70x80", alt: "user photo") %>
     </div>
     <div class="user-details">
       <h2><%= @user.name %></h2>
       <p>Number of posts: <%= @user.posts_counter %></p>
     </div>
  </div>
-
  <% @posts.each do |post| %>
  <div class="posts-enclosure">
    <div class="users-post">
        <h2><%= link_to "Post title: #{post.title}", user_post_path(@user.id, post.id), class: "link-button" %></h2>
        <p><%= post.text %></p>
        <h4>Comments: <%=post.comments_counter %>, Likes: <%= post.likes_counter %></h4>
+       <% if can? :destroy, post %>
+        <%=button_to "Delete Post", user_post_path(@user, post), method: :delete, class: "delete-button" %>
+       <% end %>
    </div>
    <div class="comments-cont">
      <% if post.recent_comments.count.zero? %>
@@ -27,6 +29,5 @@
    </div>
    </div>
  <% end %>
-
  <button class="pagination">Pagination</button>
  </div>

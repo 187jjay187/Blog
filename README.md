@@ -111,6 +111,12 @@ To run tests, run the following command:
 - Twitter: [@twitterhandle](https://twitter.com/187jjay187)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/jerome-osman-137605a4)
 
+👤 **Seko**
+
+- GitHub: [@SekoViper](https://github.com/SekoViper)
+- LinkedIn: [Livingstone dameh](https://www.linkedin.com/in/livingstone-dameh/)
+
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->

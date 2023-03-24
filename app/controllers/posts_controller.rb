@@ -1,12 +1,13 @@
 class PostsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
-    @posts = Post.where(author_id: @user)
+    @posts = @user.posts.includes(:comments)
+    @like = @user.likes.new
   end
 
   def show
     @user = User.find(params[:user_id])
-    @post = @user.posts.find(params[:id])
+    @post = Post.find_by!(id: params[:id], author_id: params[:user_id])
   end
 
   def new
@@ -14,6 +15,7 @@ class PostsController < ApplicationController
   end
 
   def create
+    current_user = User.find(params[:user_id])
     @post = current_user.posts.new(post_params)
 
     if @post.save

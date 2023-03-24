@@ -80,3 +80,6 @@ gem 'rspec-rails'
 
 # Use the devise gem as the session and account manager for the application
 gem 'devise'
+
+# authorization
+gem 'cancancan'

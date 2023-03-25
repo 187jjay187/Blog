@@ -12,7 +12,7 @@ class Api::V1::CommentsController < Api::V1::ApplicationController
     comment.author = @user
     comment.text = comment_params[:text]
     if comment.save
-      render json: comment, status: :created, except: [:created_at, :updated_at]
+      render json: comment, status: :created, except: %i[created_at updated_at]
     else
       render json: { errors: comment.errors }, status: :unprocessable_entity
     end
@@ -29,6 +29,6 @@ class Api::V1::CommentsController < Api::V1::ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:text)
+    params.require(:comment).permit(:text).merge(author: @user)
   end
 end

@@ -1,34 +1,32 @@
-class CommentsController < ApplicationController
-  load_and_authorize_resource
-  def new
-    @comment = Comment.new
+class Api::V1::CommentsController < Api::V1::ApplicationController
+  before_action :set_user, only: %i[index create]
+  before_action :set_post, only: %i[index create]
+
+  def index
+    comments = @post.comments
+    render json: comments, status: :ok
   end
 
   def create
-    post = Post.find(params[:post_id])
-    @comment = post.comments.create(comment_params)
-    @comment.author = current_user
-
-    if @comment.save
-      redirect_to user_post_path(params[:user_id], post)
-      flash[:notice] = 'Comment successfully created!'
+    comment = @post.comments.build(comment_params)
+    comment.author = @user
+    comment.text = comment_params[:text]
+    if comment.save
+      render json: comment, status: :created, except: [:created_at, :updated_at]
     else
-      flash.now[:error] = 'Error: Comment creation not successful'
-      render 'new'
+      render json: { errors: comment.errors }, status: :unprocessable_entity
     end
   end
 
-  def destroy
+  private
+
+  def set_user
     @user = User.find(params[:user_id])
-    @post = Post.find_by!(id: params[:post_id])
-    comment = Comment.find_by!(post_id: params[:post_id], id: params[:id])
-    comment.destroy
-    @post.decrement!(:comments_counter)
-    flash[:notice] = 'The comment was deleted'
-    redirect_to user_post_path(@user, @post)
   end
 
-  private
+  def set_post
+    @post = Post.find(params[:post_id])
+  end
 
   def comment_params
     params.require(:comment).permit(:text)

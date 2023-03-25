@@ -27,4 +27,10 @@ class User < ApplicationRecord
       role == exact_role
     end
   end
+
+  private
+
+  def set_default_posts_counter
+    self.posts_counter ||= 0
+  end
 end

@@ -18,5 +18,7 @@ Rails.application.routes.draw do
   end
   end
 
+  mount SwaggerUiEngine::Engine, at: '/swagger'
+
   root 'users#index'
 end

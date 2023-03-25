@@ -1,7 +1,6 @@
 class Api::V1::CommentsController < Api::V1::ApplicationController
   before_action :set_user, only: %i[index create]
   before_action :set_post, only: %i[index create]
-
   def index
     comments = @post.comments
     render json: comments, status: :ok
@@ -9,10 +8,9 @@ class Api::V1::CommentsController < Api::V1::ApplicationController
 
   def create
     comment = @post.comments.build(comment_params)
-    comment.author = @user
-    comment.text = comment_params[:text]
+    comment.user = @user
     if comment.save
-      render json: comment, status: :created, except: %i[created_at updated_at]
+      render json: comment, status: :created
     else
       render json: { errors: comment.errors }, status: :unprocessable_entity
     end
@@ -29,6 +27,6 @@ class Api::V1::CommentsController < Api::V1::ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:text).merge(author: @user)
+    params.require(:comment).permit(:body)
   end
 end
